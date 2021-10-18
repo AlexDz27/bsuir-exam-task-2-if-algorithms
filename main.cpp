@@ -21,6 +21,29 @@ int main() {
 
   cout << x << endl;
 
+  /** Define function φ(x) **/
+  int choice;
+  double evaluatedFunctionResult;
+  cout << "Choose one of the three functions φ(x) — 2 * x, pow(x, 2) or x/3. To choose, type in 1, 2 or 3 respectively: " << endl;
+  cin >> choice;
+  switch (choice) {
+    case 1:
+      evaluatedFunctionResult = 2 * x;
+      break;
+
+    case 2:
+      evaluatedFunctionResult = pow(x, 2);
+      break;
+
+    case 3:
+      evaluatedFunctionResult = x / 3;
+      break;
+
+    default:
+      cout << "Error: you've entered values that are not 1, 2 or 3. Exiting the program...";
+      return 1;
+  }
+
   /** Define 'd', 'c' **/
   double d;
   double c;
@@ -31,6 +54,6 @@ int main() {
     cout << "Error: you've entered bad values into one of the variables. All variables must be numbers. Exiting the program...";
     return 1;
   }
-  
+
   return 0;
 }
