@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-  /** Define 'x' depending on 'z' **/
+  /**** Define 'x' depending on 'z' ****/
   double z;
   cout << "Z: "; cin >> z;
 
@@ -21,22 +21,22 @@ int main() {
 
   cout << x << endl;
 
-  /** Define function φ(x) **/
+  /**** Define function φ(x) ****/
   int choice;
-  double evaluatedFunctionResult;
-  cout << "Choose one of the three functions φ(x) — 2 * x, pow(x, 2) or x/3. To choose, type in 1, 2 or 3 respectively: " << endl;
+  double evaluatedFunction;
+  cout << "Choose one of the three functions φ(x) — 2 * x, pow(x, 2) or x / 3. To choose, type in '1', '2' or '3' respectively: " << endl;
   cin >> choice;
   switch (choice) {
     case 1:
-      evaluatedFunctionResult = 2 * x;
+      evaluatedFunction = 2 * x;
       break;
 
     case 2:
-      evaluatedFunctionResult = pow(x, 2);
+      evaluatedFunction = pow(x, 2);
       break;
 
     case 3:
-      evaluatedFunctionResult = x / 3;
+      evaluatedFunction = x / 3;
       break;
 
     default:
@@ -44,16 +44,33 @@ int main() {
       return 1;
   }
 
-  /** Define 'd', 'c' **/
+  /**** Define 'd', 'c' ****/
   double d;
   double c;
-  cout << "D: "; cin >> d;
-  cout << "C: "; cin >> c;
+  cout << "Type in value of variable 'd': "; cin >> d;
+  cout << "Type in value of variable 'c': "; cin >> c;
 
   if (!cin.good()) { // If user entered value other than numbers
-    cout << "Error: you've entered bad values into one of the variables. All variables must be numbers. Exiting the program...";
+    cout << "Error: you've entered invalid values into one of the variables. All variables must be numbers. Exiting the program...";
     return 1;
   }
+
+  /**** Calculate the result ****/
+  double result;
+
+  /*** First operand ***/
+  /** Calculate sin in 3rd power * x **/
+  double sinResult = (3 * sin(x) - sin(3 * x)) / 4;
+  /** [END] Calculate sin in 3rd power * x **/
+
+  double firstOperand = d * evaluatedFunction * exp(sinResult);
+
+  /*** Second operand ***/
+  double secondOperand = c * log(x + 1);
+
+  result = (firstOperand + secondOperand) / (sqrt(x));
+  
+  cout << result;
 
   return 0;
 }
